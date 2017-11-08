@@ -11,27 +11,34 @@
 
 			//your code here
 			var a=9
-			for(x = 0; x < 9; x++){
+			for(x = 0; x < 300; x++){
 			robotArm.grab();
-			color = robotArm.scan();
+			console.log(color = robotArm.scan());
 
-			if (color === "red") {
-            	for (var i=0; i<a; i++) {
-                        robotArm.moveRight();
-                    }
-                    robotArm.drop();
-                for (var i=0; i<a; i++) {
-                        robotArm.moveLeft();
-                    }
-                    robotArm.moveRight();
-                    a--;    
-                }else{
-                    robotArm.drop();
-                    robotArm.moveRight();
-                a--;
-                }       
+			if (color === "red") { 
+			robotArm.moveRight();
+			robotArm.drop();
+			robotArm.moveLeft();    
+		} else if (color === "white"){
+			robotArm.moveRight();
+			robotArm.drop();
+			robotArm.moveLeft();	
+		}else if (color === "green"){
+			robotArm.moveRight();
+			robotArm.drop();
+			robotArm.moveLeft();	
+		}else if (color === "blue"){
+			robotArm.moveRight();
+			robotArm.drop();
+			robotArm.moveLeft();	
+		}else {
+			robotArm.moveRight();
+			robotArm.grab();
+			robotArm.moveLeft();
+			robotArm.drop(); 
+			robotArm.moveRight(); 
 		}
-		
+			}
 			//end code
 			robotArm.run();
 			
